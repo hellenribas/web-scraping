@@ -23,6 +23,7 @@ app.get("/", async (req, res) => {
         arr.push({
           imgUrl: imgUrl.src,
           title: title.textContent,
+          link: title.href,
         });
       }
     });
