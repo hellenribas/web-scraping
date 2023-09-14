@@ -1,6 +1,13 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
+const cors = require("cors");
 const app = express();
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.get("/", async (req, res) => {
   const browser = await puppeteer.launch({ headless: false });
