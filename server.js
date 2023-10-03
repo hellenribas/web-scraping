@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
     return arr;
   });
 
-  res.send(pageContent);
+  res.status(200).send(pageContent);
   browser.close();
 });
 
