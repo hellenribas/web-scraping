@@ -34,7 +34,7 @@ app.get("/", async (req, res) => {
   browser.close();
 });
 
-const port = 3002;
+const port = 10000;
 app.listen(port, () => {
   console.log(`subiu com sucesso na porta ${port}`);
 });
