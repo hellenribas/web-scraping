@@ -1,20 +1,11 @@
-# Use a imagem base Node.js
-FROM node:16
+FROM ghcr.io/puppeteer/puppeteer:21.2.1
 
-# Crie um diretório de trabalho no contêiner
-WORKDIR /app
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
 
-# Copie o arquivo package.json e package-lock.json para o diretório de trabalho
+WORKDIR /usr/src/app
+
 COPY package*.json ./
-
-# Instale as dependências do projeto
-RUN npm install
-
-# Copie o código-fonte para o diretório de trabalho no contêiner
+RUN npm ci
 COPY . .
-
-# Porta que seu aplicativo irá escutar (ajuste de acordo com o seu código)
-EXPOSE 10000
-
-# Comando para iniciar o servidor
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
