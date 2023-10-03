@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Porta que seu aplicativo irá escutar (ajuste de acordo com o seu código)
-EXPOSE 3000
+EXPOSE 10000
 
 # Comando para iniciar o servidor
-CMD npm start
+CMD ["npm", "start"]
